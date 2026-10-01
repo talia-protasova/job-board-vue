@@ -1,1 +1,1 @@
-export { default as JobsPage } from './ui/JobsPage.vue';
+export { default as JobsPage } from './ui/JobsPage.vue'

@@ -1,0 +1,11 @@
+@layer base {
+  html {
+    min-block-size: 100%;
+  }
+
+  body {
+    min-block-size: 100%;
+    background-color: var(--color-bg-page);
+    color: var(--color-text-primary);
+  }
+}
