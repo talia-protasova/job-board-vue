@@ -1,0 +1,30 @@
+@use '@/shared/styles/settings/breakpoints';
+
+@layer components {
+  .jobs-list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-700) 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &__item {
+      min-inline-size: 0;
+    }
+  }
+
+  @media (width >= breakpoints.$breakpoint-medium) {
+    .jobs-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: var(--space-125);
+    }
+  }
+
+  @media (width >= breakpoints.$breakpoint-wide) {
+    .jobs-list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      column-gap: var(--space-375);
+    }
+  }
+}

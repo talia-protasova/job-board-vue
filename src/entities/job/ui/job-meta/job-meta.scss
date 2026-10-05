@@ -1,0 +1,25 @@
+@layer components {
+  .job-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-150);
+    margin: 0;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-4);
+    line-height: var(--line-height-4-regular);
+
+    &__contract {
+      display: flex;
+      align-items: center;
+      gap: var(--space-150);
+
+      &::before {
+        inline-size: 0.25rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background-color: currentcolor;
+        content: '';
+      }
+    }
+  }
+}
