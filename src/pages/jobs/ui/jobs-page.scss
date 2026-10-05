@@ -1,0 +1,11 @@
+@layer components {
+  .jobs-page {
+    padding-block: var(--space-600) var(--space-700);
+
+    &__load-more {
+      display: flex;
+      justify-content: center;
+      margin-block-start: var(--space-700);
+    }
+  }
+}

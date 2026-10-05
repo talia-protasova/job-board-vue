@@ -1,11 +1,14 @@
 @layer base {
-  html {
+  html,
+  body,
+  #app {
     min-block-size: 100%;
   }
 
   body {
-    min-block-size: 100%;
+    margin: 0;
     background-color: var(--color-bg-page);
     color: var(--color-text-primary);
+    font-family: var(--font-family-primary);
   }
 }
