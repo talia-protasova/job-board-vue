@@ -1,0 +1,75 @@
+@use '@/shared/styles/settings/breakpoints';
+
+@layer components {
+  .app-header {
+    position: relative;
+    z-index: var(--z-header);
+    block-size: 8.5rem;
+    overflow: hidden;
+
+    &__background {
+      position: absolute;
+      z-index: 0;
+      display: block;
+      inline-size: 100%;
+      block-size: 100%;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    &__background--tablet,
+    &__background--desktop {
+      display: none;
+    }
+
+    &__inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block-start: var(--space-400);
+    }
+
+    &__logo-link {
+      display: inline-flex;
+      flex: 0 0 auto;
+    }
+
+    &__logo {
+      display: block;
+      inline-size: 7.1875rem;
+      block-size: 2rem;
+    }
+  }
+
+  @media (width >= breakpoints.$breakpoint-medium) {
+    .app-header {
+      block-size: 10rem;
+
+      &__background--mobile {
+        display: none;
+      }
+
+      &__background--tablet {
+        display: block;
+      }
+
+      &__inner {
+        padding-block-start: var(--space-550);
+      }
+    }
+  }
+
+  @media (width >= breakpoints.$breakpoint-wide) {
+    .app-header {
+      &__background--tablet {
+        display: none;
+      }
+
+      &__background--desktop {
+        display: block;
+      }
+    }
+  }
+}

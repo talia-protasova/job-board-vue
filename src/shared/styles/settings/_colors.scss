@@ -1,15 +1,68 @@
 :root {
-  --color-primary: #5964e0;
-  --color-primary-light: #939bf4;
-  --color-text-primary: #19202d;
-  --color-text-muted: #6e8098;
-  --color-bg-page: #f4f6f8;
-  --color-bg-surface: #fff;
-  --color-focus: #5964e0;
+  color-scheme: light;
+
+  // Primitive colors
+  --color-neutral-0: oklch(100% 0.00011 271.152deg);
+  --color-neutral-950: oklch(0% 0 0deg);
+  --color-slate-100: oklch(97.219% 0.00353 248.575deg);
+  --color-slate-300: oklch(74.42% 0.0347 252.583deg);
+  --color-slate-500: oklch(59.413% 0.04255 255.721deg);
+  --color-slate-900: oklch(24.294% 0.02708 262.553deg);
+  --color-slate-950: oklch(20.444% 0.02153 263.938deg);
+  --color-indigo-300: oklch(71.956% 0.12935 278.708deg);
+  --color-indigo-500: oklch(56.265% 0.18658 274.876deg);
+
+  // Surfaces
+
+  --color-bg-page: var(--color-slate-100);
+  --color-bg-surface: var(--color-neutral-0);
+
+  // Text
+
+  --color-text-primary: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+  --color-text-accent: var(--color-indigo-500);
+  --color-text-on-accent: var(--color-neutral-0);
+
+  // Primary actions
+
+  --color-action-primary: var(--color-indigo-500);
+  --color-action-primary-hover: var(--color-indigo-300);
+  --color-action-primary-text: var(--color-neutral-0);
+
+  // Secondary actions
+
+  --color-action-secondary-bg: rgb(89 100 224 / 10%);
+  --color-action-secondary-bg-hover: rgb(89 100 224 / 35%);
+  --color-action-secondary-text: var(--color-indigo-500);
+
+  // Form controls
+
+  --color-field-placeholder: rgb(25 32 45 / 50%);
+  --color-divider: rgb(110 128 152 / 20%);
+  --color-checkbox-bg: rgb(25 32 45 / 10%);
+
+  // Theme toggle
+
+  --color-toggle-track: var(--color-neutral-0);
+  --color-toggle-thumb: var(--color-indigo-500);
+  --color-toggle-thumb-hover: var(--color-indigo-300);
+  --color-toggle-icon: var(--color-neutral-0);
+
+  // Accessibility
+
+  --color-focus: var(--color-indigo-500);
 }
 
 [data-theme='dark'] {
-  --color-text-primary: #fff;
-  --color-bg-page: #121721;
-  --color-bg-surface: #19202d;
+  color-scheme: dark;
+
+  --color-bg-page: var(--color-slate-950);
+  --color-bg-surface: var(--color-slate-900);
+  --color-text-primary: var(--color-neutral-0);
+  --color-action-secondary-bg: rgb(255 255 255 / 10%);
+  --color-action-secondary-bg-hover: rgb(255 255 255 / 25%);
+  --color-action-secondary-text: var(--color-neutral-0);
+  --color-field-placeholder: rgb(255 255 255 / 50%);
+  --color-checkbox-bg: rgb(255 255 255 / 10%);
 }

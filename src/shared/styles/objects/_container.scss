@@ -1,6 +1,6 @@
 @layer objects {
   .o-container {
-    inline-size: min(100% - (2 * var(--space-page-inline)), var(--container-max, 69.375rem));
+    inline-size: min(100% - (2 * var(--space-page-inline)), var(--layout-content-max));
     margin-inline: auto;
   }
 }

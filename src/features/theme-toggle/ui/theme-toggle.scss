@@ -1,0 +1,59 @@
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-200);
+  inline-size: 7rem; // 112px
+  block-size: 1.5rem; // 24px
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.theme-toggle__sun {
+  flex: 0 0 auto;
+  inline-size: 1.25rem; // 20px
+  block-size: 1.1875rem; // 19px
+}
+
+.theme-toggle__moon {
+  flex: 0 0 auto;
+  inline-size: 0.75rem; // 12px
+  block-size: 0.75rem; // 12px
+}
+
+.theme-toggle__track {
+  position: relative;
+  flex: 0 0 auto;
+  inline-size: 3rem; // 48px
+  block-size: 1.5rem; // 24px
+  border-radius: var(--radius-12);
+  background-color: var(--color-toggle-track);
+}
+
+.theme-toggle__thumb {
+  position: absolute;
+  inset-block-start: 0.3125rem; // 5px
+  inset-inline-start: 0.375rem; // 6px
+  inline-size: 0.875rem; // 14px
+  block-size: 0.875rem; // 14px
+  border-radius: 50%;
+  background-color: var(--color-toggle-thumb);
+  transition:
+    translate var(--motion-fast) var(--ease-standard),
+    background-color var(--motion-fast) var(--ease-standard);
+}
+
+.theme-toggle__thumb--active {
+  translate: 1.375rem 0; // 22px
+}
+
+.theme-toggle:hover .theme-toggle__thumb {
+  background-color: var(--color-toggle-thumb-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle__thumb {
+    transition: none;
+  }
+}
