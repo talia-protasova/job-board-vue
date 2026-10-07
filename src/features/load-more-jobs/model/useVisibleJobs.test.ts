@@ -30,7 +30,10 @@ function createJob(id: number): Job {
 }
 
 function createJobs(count: number): Job[] {
-  return Array.from({ length: count }, (_, index) => createJob(index + 1))
+  return Array.from(
+    { length: count },
+    (_, index) => createJob(index + 1),
+  )
 }
 
 describe('useVisibleJobs', () => {
@@ -46,7 +49,11 @@ describe('useVisibleJobs', () => {
   it('reveals more jobs', () => {
     const jobs = ref(createJobs(15))
 
-    const { visibleJobs, hasMore, loadMore } = useVisibleJobs(jobs)
+    const {
+      visibleJobs,
+      hasMore,
+      loadMore,
+    } = useVisibleJobs(jobs)
 
     loadMore()
 
@@ -64,7 +71,7 @@ describe('useVisibleJobs', () => {
     expect(visibleJobs.value).toHaveLength(13)
   })
 
-  it('resets the visible count when the jobs change', async () => {
+  it('resets the visible count when jobs change', async () => {
     const jobs = ref(createJobs(15))
 
     const { visibleJobs, loadMore } = useVisibleJobs(jobs)
