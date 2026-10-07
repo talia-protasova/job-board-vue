@@ -1,6 +1,37 @@
 @layer components {
   .jobs-page {
-    padding-block: var(--space-600) var(--space-700);
+    padding-block-end: var(--space-700);
+
+    &__filters {
+      position: relative;
+      z-index: calc(var(--z-header) + 1);
+      margin-block-start: calc(0rem - var(--space-500));
+    }
+
+    &__results {
+      margin-block-start: var(--space-600);
+    }
+
+    &__empty {
+      padding-block: var(--space-700);
+      text-align: center;
+    }
+
+    &__empty-title {
+      margin: 0;
+      color: var(--color-text-primary);
+      font-size: var(--font-size-2);
+      line-height: var(--line-height-2);
+    }
+
+    &__empty-text {
+      max-inline-size: 28rem;
+      margin-block: var(--space-200) 0;
+      margin-inline: auto;
+      color: var(--color-text-secondary);
+      font-size: var(--font-size-4);
+      line-height: var(--line-height-4-regular);
+    }
 
     &__load-more {
       display: flex;
