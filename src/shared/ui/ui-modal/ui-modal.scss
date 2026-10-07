@@ -1,0 +1,51 @@
+@layer components {
+  .ui-modal {
+    position: fixed;
+    z-index: var(--z-modal-backdrop);
+    display: grid;
+    overflow-y: auto;
+    place-items: center;
+    inset: 0;
+    padding-block: var(--space-300);
+    padding-inline: var(--space-page-inline);
+    background-color: rgb(0 0 0 / 50%);
+
+    &__dialog {
+      z-index: var(--z-modal);
+      inline-size: min(100%, 32rem);
+      border-radius: var(--radius-surface);
+      color: var(--color-text-primary);
+      background-color: var(--color-bg-surface);
+    }
+
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-200);
+      padding-block: var(--space-200);
+      padding-inline: var(--space-300);
+      border-block-end: 1px solid var(--color-divider);
+    }
+
+    &__title {
+      margin: 0;
+      font-size: var(--font-size-3);
+      line-height: var(--line-height-3);
+    }
+
+    &__close {
+      border: 0;
+      padding: var(--space-100);
+      color: var(--color-text-accent);
+      background: transparent;
+      font: inherit;
+      font-weight: var(--font-weight-bold);
+      cursor: pointer;
+    }
+
+    &__content {
+      min-inline-size: 0;
+    }
+  }
+}
