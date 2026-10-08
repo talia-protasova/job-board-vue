@@ -1,0 +1,126 @@
+@use '@/shared/styles/settings/breakpoints' as breakpoints;
+
+@layer components {
+  .job-details-page {
+    padding-block-end: var(--space-700);
+
+    &__content {
+      max-inline-size: var(--layout-detail-max);
+      margin-block-start: calc(-1 * var(--space-500));
+      margin-inline: auto;
+    }
+
+    &__status,
+    &__state {
+      position: relative;
+      padding: var(--space-500) var(--space-300);
+      background: var(--color-bg-surface);
+      border-radius: var(--radius-surface);
+      z-index: var(--z-header);
+    }
+
+    &__status {
+      margin: 0;
+      color: var(--color-text-secondary);
+    }
+
+    &__state-title {
+      margin: 0;
+      color: var(--color-text-primary);
+      font-size: var(--font-size-2);
+      line-height: var(--line-height-2);
+    }
+
+    &__state-text {
+      margin: var(--space-200) 0 var(--space-300);
+      color: var(--color-text-secondary);
+      font-size: var(--font-size-4);
+      line-height: var(--line-height-4-regular);
+    }
+
+    &__back-link {
+      color: var(--color-text-accent);
+      font-weight: var(--font-weight-bold);
+    }
+
+    &__apply-bar {
+      inline-size: 100%;
+      background: var(--color-bg-surface);
+    }
+
+    &__apply-inner {
+      inline-size: min(calc(100% - (2 * var(--space-page-inline))), var(--layout-detail-max));
+      margin-inline: auto;
+      padding-block: var(--space-300);
+    }
+
+    &__apply-info {
+      display: none;
+    }
+
+    &__apply-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      inline-size: 100%;
+      min-block-size: var(--space-600);
+      padding-inline: var(--space-300);
+      border-radius: var(--radius-control);
+      background: var(--color-action-primary);
+      color: var(--color-action-primary-text);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--line-height-4-bold);
+      text-decoration: none;
+      transition: background-color var(--motion-fast) var(--ease-standard);
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          background: var(--color-action-primary-hover);
+        }
+      }
+    }
+  }
+
+  @media (width >= breakpoints.$breakpoint-medium) {
+    .job-details-page {
+      &__state,
+      &__status {
+        padding: var(--space-600);
+      }
+
+      &__apply-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-400);
+      }
+
+      &__apply-info {
+        display: block;
+        min-inline-size: 0;
+      }
+
+      &__apply-title {
+        margin: 0;
+        overflow: hidden;
+        color: var(--color-text-primary);
+        font-size: var(--font-size-3);
+        line-height: var(--line-height-3);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      &__apply-company {
+        margin: var(--space-100) 0 0;
+        color: var(--color-text-secondary);
+        font-size: var(--font-size-4);
+        line-height: var(--line-height-4-regular);
+      }
+
+      &__apply-link {
+        inline-size: auto;
+        flex: 0 0 auto;
+      }
+    }
+  }
+}

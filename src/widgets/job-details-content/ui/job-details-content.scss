@@ -1,0 +1,211 @@
+@use '@/shared/styles/settings/breakpoints' as breakpoints;
+
+@layer components {
+  .job-details {
+    display: grid;
+    gap: var(--space-300);
+
+    &__company,
+    &__main {
+      background: var(--color-bg-surface);
+      border-radius: var(--radius-surface);
+    }
+
+    &__company {
+      position: relative;
+      display: grid;
+      justify-items: center;
+      padding: var(--space-600) var(--space-300) var(--space-400);
+      text-align: center;
+      z-index: var(--z-header);
+    }
+
+    &__company-logo {
+      position: absolute;
+      inset-block-start: 0;
+      transform: translateY(-50%);
+    }
+
+    &__company-info {
+      min-inline-size: 0;
+    }
+
+    &__company-name {
+      margin: 0;
+      color: var(--color-text-primary);
+      font-size: var(--font-size-3);
+      line-height: var(--line-height-3);
+    }
+
+    &__company-website {
+      display: block;
+      margin-block-start: var(--space-150);
+      overflow: hidden;
+      color: var(--color-text-secondary);
+      text-overflow: ellipsis;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    &__company-link,
+    &__apply {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-block-size: var(--space-600);
+      border-radius: var(--radius-control);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--line-height-4-bold);
+      text-decoration: none;
+      transition:
+        background-color var(--motion-fast) var(--ease-standard),
+        color var(--motion-fast) var(--ease-standard);
+    }
+
+    &__company-link {
+      margin-block-start: var(--space-300);
+      padding-inline: var(--space-300);
+      background: var(--color-action-secondary-bg);
+      color: var(--color-action-secondary-text);
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          background: var(--color-action-secondary-bg-hover);
+        }
+      }
+    }
+
+    &__main {
+      display: grid;
+      gap: var(--space-500);
+      padding: var(--space-500) var(--space-300);
+    }
+
+    &__header {
+      display: grid;
+      gap: var(--space-300);
+    }
+
+    &__heading {
+      min-inline-size: 0;
+    }
+
+    &__title {
+      margin: var(--space-100) 0 0;
+      color: var(--color-text-primary);
+      font-size: var(--font-size-3);
+      line-height: var(--line-height-3);
+    }
+
+    &__location {
+      margin: var(--space-150) 0 0;
+      color: var(--color-text-accent);
+      font-size: var(--font-size-5);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--line-height-5);
+    }
+
+    &__apply {
+      inline-size: 100%;
+      padding-inline: var(--space-300);
+      background: var(--color-action-primary);
+      color: var(--color-action-primary-text);
+
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          background: var(--color-action-primary-hover);
+        }
+      }
+    }
+
+    &__section {
+      display: grid;
+      gap: var(--space-300);
+    }
+
+    &__section-title {
+      margin: 0;
+      color: var(--color-text-primary);
+      font-size: var(--font-size-3);
+      line-height: var(--line-height-3);
+    }
+
+    &__description,
+    &__section-text,
+    &__list {
+      margin: 0;
+      color: var(--color-text-secondary);
+      font-size: var(--font-size-4);
+      font-weight: var(--font-weight-regular);
+      line-height: var(--line-height-4-regular);
+    }
+
+    &__list {
+      display: grid;
+      gap: var(--space-100);
+      padding-inline-start: var(--space-300);
+    }
+
+    &__list-item {
+      padding-inline-start: var(--space-200);
+
+      &::marker {
+        color: var(--color-text-accent);
+        font-weight: var(--font-weight-bold);
+      }
+    }
+  }
+
+  @media (width >= breakpoints.$breakpoint-medium) {
+    .job-details {
+      gap: var(--space-400);
+
+      &__company {
+        grid-template-columns: 8.75rem minmax(0, 1fr) auto;
+        place-items: center stretch;
+        min-block-size: 8.75rem;
+        padding: var(--space-0) var(--space-500) var(--space-0) var(--space-0);
+        overflow: hidden;
+        text-align: start;
+      }
+
+      &__company-logo {
+        position: static;
+        inline-size: 8.75rem;
+        border-radius: var(--radius-0);
+        transform: none;
+      }
+
+      &__company-info {
+        padding-inline: var(--space-500);
+      }
+
+      &__company-name {
+        font-size: var(--font-size-2);
+        line-height: var(--line-height-2);
+      }
+
+      &__company-link {
+        margin-block-start: var(--space-0);
+      }
+
+      &__main {
+        padding: var(--space-600);
+      }
+
+      &__header {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+      }
+
+      &__title {
+        font-size: var(--font-size-1);
+        line-height: var(--line-height-1);
+      }
+
+      &__apply {
+        inline-size: auto;
+      }
+    }
+  }
+}

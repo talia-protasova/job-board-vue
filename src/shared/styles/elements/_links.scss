@@ -1,5 +1,5 @@
 @layer base {
-  a {
+  a:not([class]) {
     color: inherit;
   }
 }
