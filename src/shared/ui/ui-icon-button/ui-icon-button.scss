@@ -35,4 +35,10 @@
       }
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ui-icon-button {
+      transition: none;
+    }
+  }
 }

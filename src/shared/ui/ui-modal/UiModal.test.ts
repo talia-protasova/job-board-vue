@@ -45,10 +45,11 @@ describe('UiModal', () => {
 
     expect(document.body.classList.contains('u-no-scroll')).toBe(true)
 
-    expect(wrapper.get('[role="dialog"]').attributes()).toMatchObject({
-      'aria-modal': 'true',
-      'aria-label': 'Filter jobs',
-    })
+    const dialog = wrapper.get('[role="dialog"]')
+    const title = wrapper.get('.ui-modal__title')
+
+    expect(dialog.attributes('aria-modal')).toBe('true')
+    expect(dialog.attributes('aria-labelledby')).toBe(title.attributes('id'))
 
     expect(document.activeElement).toBe(wrapper.get('.ui-modal__close').element)
   })
@@ -111,5 +112,74 @@ describe('UiModal', () => {
     expect(document.body.classList.contains('u-no-scroll')).toBe(false)
 
     expect(document.activeElement).toBe(trigger)
+  })
+
+  it('wraps focus from the last focusable element to the first when pressing Tab', async () => {
+    wrapper = mount(UiModal, {
+      attachTo: document.body,
+      props: {
+        open: true,
+        title: 'Filter jobs',
+      },
+      global: {
+        stubs: {
+          Teleport: true,
+        },
+      },
+      slots: {
+        default: `
+          <input aria-label="Location">
+          <button type="button">Apply</button>
+        `,
+      },
+    })
+
+    await flushPromises()
+
+    const firstElement = wrapper.get('.ui-modal__close')
+    const lastElement = wrapper.get('button:not(.ui-modal__close)')
+
+    ;(lastElement.element as HTMLElement).focus()
+
+    await wrapper.get('.ui-modal__dialog').trigger('keydown', {
+      key: 'Tab',
+    })
+
+    expect(document.activeElement).toBe(firstElement.element)
+  })
+
+  it('wraps focus from the first focusable element to the last when pressing Shift+Tab', async () => {
+    wrapper = mount(UiModal, {
+      attachTo: document.body,
+      props: {
+        open: true,
+        title: 'Filter jobs',
+      },
+      global: {
+        stubs: {
+          Teleport: true,
+        },
+      },
+      slots: {
+        default: `
+          <input aria-label="Location">
+          <button type="button">Apply</button>
+        `,
+      },
+    })
+
+    await flushPromises()
+
+    const firstElement = wrapper.get('.ui-modal__close')
+    const lastElement = wrapper.get('button:not(.ui-modal__close)')
+
+    ;(firstElement.element as HTMLElement).focus()
+
+    await wrapper.get('.ui-modal__dialog').trigger('keydown', {
+      key: 'Tab',
+      shiftKey: true,
+    })
+
+    expect(document.activeElement).toBe(lastElement.element)
   })
 })

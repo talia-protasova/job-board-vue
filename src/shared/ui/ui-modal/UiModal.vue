@@ -3,6 +3,7 @@ import {
   nextTick,
   onBeforeUnmount,
   ref,
+  useId,
   watch,
 } from 'vue'
 
@@ -16,6 +17,7 @@ const emit = defineEmits<{
 }>()
 
 const dialogRef = ref<HTMLElement | null>(null)
+const titleId = useId()
 
 let previouslyFocusedElement: HTMLElement | null = null
 
@@ -133,10 +135,10 @@ onBeforeUnmount(() => {
   <Teleport to="body">
     <div v-if="open" class="ui-modal" @click.self="closeModal">
       <div
-ref="dialogRef" class="ui-modal__dialog" role="dialog" aria-modal="true" :aria-label="title" tabindex="-1"
-        @keydown="handleKeydown">
+ref="dialogRef" class="ui-modal__dialog" role="dialog" aria-modal="true" :aria-labelledby="titleId"
+        tabindex="-1" @keydown="handleKeydown">
         <header class="ui-modal__header">
-          <h2 class="ui-modal__title">
+          <h2 :id="titleId" class="ui-modal__title">
             {{ title }}
           </h2>
 

@@ -80,7 +80,7 @@ watch(
 <template>
   <AppHeader />
 
-  <main id="main-content" class="job-details-page">
+  <main id="main-content" class="job-details-page" tabindex="-1">
     <UiContainer>
       <div class="job-details-page__content">
         <p v-if="status === 'loading'" class="job-details-page__status">

@@ -3,4 +3,29 @@
     outline: 0.1875rem solid var(--color-focus);
     outline-offset: 0.1875rem;
   }
+
+  .skip-link {
+    position: fixed;
+    inset-block-start: var(--space-sm);
+    inset-inline-start: var(--space-sm);
+    z-index: var(--z-modal);
+    padding-block: var(--space-xs);
+    padding-inline: var(--space-md);
+    background: var(--color-action-primary);
+    color: var(--color-action-primary-text);
+    border-radius: var(--radius-control);
+    text-decoration: none;
+    transform: translateY(-200%);
+    transition: transform var(--motion-fast) var(--ease-standard);
+  }
+
+  .skip-link:focus-visible {
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .skip-link {
+      transition: none;
+    }
+  }
 }

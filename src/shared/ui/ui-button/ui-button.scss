@@ -36,3 +36,9 @@
   color: var(--color-action-secondary-text);
   background-color: var(--color-action-secondary-bg);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-button {
+    transition: none;
+  }
+}

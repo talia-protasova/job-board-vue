@@ -48,8 +48,10 @@
   translate: 1.375rem 0; // 22px
 }
 
-.theme-toggle:hover .theme-toggle__thumb {
-  background-color: var(--color-toggle-thumb-hover);
+@media (hover: hover) and (pointer: fine) {
+  .theme-toggle:hover .theme-toggle__thumb {
+    background-color: var(--color-toggle-thumb-hover);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

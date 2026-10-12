@@ -208,4 +208,11 @@
       }
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .job-details__company-link,
+    .job-details__apply {
+      transition: none;
+    }
+  }
 }

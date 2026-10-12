@@ -52,7 +52,7 @@ onMounted(async () => {
 <template>
   <AppHeader />
 
-  <main id="main-content" class="jobs-page">
+  <main id="main-content" class="jobs-page" tabindex="-1">
     <UiContainer>
       <div class="jobs-page__filters">
         <JobFilters :filters="filters" @submit="updateFilters" />

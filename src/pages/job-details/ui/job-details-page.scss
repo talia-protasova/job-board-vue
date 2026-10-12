@@ -123,4 +123,10 @@
       }
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .job-details-page__apply-link {
+      transition: none;
+    }
+  }
 }
