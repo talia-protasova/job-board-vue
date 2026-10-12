@@ -10,11 +10,11 @@ defineProps<{
 </script>
 
 <template>
-  <ul class="jobs-list">
+  <TransitionGroup name="jobs-list" tag="ul" class="jobs-list">
     <li v-for="job in jobs" :key="job.id" class="jobs-list__item">
       <JobCard :job="job" />
     </li>
-  </ul>
+  </TransitionGroup>
 </template>
 
 <style lang="scss" src="./jobs-list.scss"></style>

@@ -48,4 +48,36 @@
       min-inline-size: 0;
     }
   }
+
+  .ui-modal-enter-active,
+  .ui-modal-leave-active {
+    transition: opacity var(--motion-fast) var(--ease-standard);
+  }
+
+  .ui-modal-enter-active .ui-modal__dialog,
+  .ui-modal-leave-active .ui-modal__dialog {
+    transition:
+      opacity var(--motion-fast) var(--ease-standard),
+      transform var(--motion-fast) var(--ease-standard);
+  }
+
+  .ui-modal-enter-from,
+  .ui-modal-leave-to {
+    opacity: 0;
+  }
+
+  .ui-modal-enter-from .ui-modal__dialog,
+  .ui-modal-leave-to .ui-modal__dialog {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ui-modal-enter-active,
+    .ui-modal-leave-active,
+    .ui-modal-enter-active .ui-modal__dialog,
+    .ui-modal-leave-active .ui-modal__dialog {
+      transition: none;
+    }
+  }
 }

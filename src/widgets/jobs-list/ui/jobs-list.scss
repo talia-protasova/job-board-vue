@@ -27,4 +27,30 @@
       column-gap: var(--space-375);
     }
   }
+
+  .jobs-list-enter-active,
+  .jobs-list-leave-active,
+  .jobs-list-move {
+    transition:
+      opacity var(--motion-base) var(--ease-standard),
+      transform var(--motion-base) var(--ease-standard);
+  }
+
+  .jobs-list-enter-from,
+  .jobs-list-leave-to {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+
+  .jobs-list-leave-active {
+    position: absolute;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .jobs-list-enter-active,
+    .jobs-list-leave-active,
+    .jobs-list-move {
+      transition: none;
+    }
+  }
 }

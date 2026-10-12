@@ -133,25 +133,27 @@ onBeforeUnmount(() => {
 
 <template>
   <Teleport to="body">
-    <div v-if="open" class="ui-modal" @click.self="closeModal">
-      <div
+    <Transition name="ui-modal">
+      <div v-if="open" class="ui-modal" @click.self="closeModal">
+        <div
 ref="dialogRef" class="ui-modal__dialog" role="dialog" aria-modal="true" :aria-labelledby="titleId"
-        tabindex="-1" @keydown="handleKeydown">
-        <header class="ui-modal__header">
-          <h2 :id="titleId" class="ui-modal__title">
-            {{ title }}
-          </h2>
+          tabindex="-1" @keydown="handleKeydown">
+          <header class="ui-modal__header">
+            <h2 :id="titleId" class="ui-modal__title">
+              {{ title }}
+            </h2>
 
-          <button class="ui-modal__close" type="button" @click="closeModal">
-            Close
-          </button>
-        </header>
+            <button class="ui-modal__close" type="button" @click="closeModal">
+              Close
+            </button>
+          </header>
 
-        <div class="ui-modal__content">
-          <slot />
+          <div class="ui-modal__content">
+            <slot />
+          </div>
         </div>
       </div>
-    </div>
+    </Transition>
   </Teleport>
 </template>
 
