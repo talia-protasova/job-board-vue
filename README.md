@@ -4,7 +4,6 @@ Responsive and accessible job board built with Vue 3, TypeScript and SCSS, with 
 
 [Live demo](https://talia-protasova.github.io/job-board-vue/) · [Repository](https://github.com/talia-protasova/job-board-vue)
 
-
 ---
 
 ## Overview
@@ -122,7 +121,6 @@ This makes filtered views:
 
 Transient UI state, such as whether the mobile filters modal is open, stays local to components.
 
-
 ---
 
 ## Accessibility
@@ -144,13 +142,13 @@ The project includes:
 
 ### Verified results
 
-| Category | Score |
-| --- | ---: |
-| Lighthouse Performance | 100 |
-| Lighthouse Accessibility | 100 |
-| Lighthouse Best Practices | 100 |
-| Lighthouse SEO | 100 |
-| WAVE | 10 / 10 |
+| Category                  |   Score |
+| ------------------------- | ------: |
+| Lighthouse Performance    |     100 |
+| Lighthouse Accessibility  |     100 |
+| Lighthouse Best Practices |     100 |
+| Lighthouse SEO            |     100 |
+| WAVE                      | 10 / 10 |
 
 ---
 
@@ -271,7 +269,6 @@ pnpm build
 pnpm test:e2e
 ```
 
-
 ---
 
 ## Author
@@ -281,7 +278,6 @@ pnpm test:e2e
 Frontend Engineer focused on Vue, Angular, TypeScript, SCSS, accessibility and UI engineering.
 
 [LinkedIn](https://www.linkedin.com/in/talia-protasova) · [Portfolio](https://taliaprotasova.dev)
-
 
 ---
 
