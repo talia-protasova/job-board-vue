@@ -74,6 +74,7 @@ async function mountPage(jobId: string) {
 describe('JobDetailsPage', () => {
   beforeEach(() => {
     getJobByIdMock.mockReset()
+    document.title = 'DevJobs'
   })
 
   it('loads the requested job', async () => {
@@ -92,6 +93,16 @@ describe('JobDetailsPage', () => {
     expect(jobDetails.props('job')).toEqual(job)
   })
 
+  it('sets the document title from the loaded job position', async () => {
+    const job = createJob()
+
+    getJobByIdMock.mockResolvedValue(job)
+
+    await mountPage('1')
+
+    expect(document.title).toBe('Senior Software Engineer | DevJobs')
+  })
+
   it('shows the not-found state when the job does not exist', async () => {
     getJobByIdMock.mockResolvedValue(null)
 
@@ -104,12 +115,21 @@ describe('JobDetailsPage', () => {
     expect(wrapper.get('a').attributes('href')).toBe('/')
   })
 
+  it('sets the not-found document title when the job does not exist', async () => {
+    getJobByIdMock.mockResolvedValue(null)
+
+    await mountPage('999')
+
+    expect(document.title).toBe('Page not found | DevJobs')
+  })
+
   it('treats an invalid job id as not found without calling the repository', async () => {
     const wrapper = await mountPage('invalid')
 
     expect(getJobByIdMock).not.toHaveBeenCalled()
 
     expect(wrapper.get('#job-not-found-title').text()).toBe('Job not found')
+    expect(document.title).toBe('Page not found | DevJobs')
   })
 
   it('shows an error state when loading fails', async () => {
@@ -120,5 +140,91 @@ describe('JobDetailsPage', () => {
     expect(wrapper.get('#job-error-title').text()).toBe('Something went wrong')
 
     expect(wrapper.text()).toContain("We couldn't load this job.")
+    expect(document.title).toBe('DevJobs')
+  })
+
+  it('resets the document title while loading another job', async () => {
+    const firstJob = createJob()
+
+    getJobByIdMock.mockResolvedValueOnce(firstJob)
+
+    const wrapper = await mountPage('1')
+
+    expect(document.title).toBe('Senior Software Engineer | DevJobs')
+
+    let resolveJob!: (value: Job | null) => void
+
+    getJobByIdMock.mockImplementationOnce(
+      () =>
+        new Promise((resolve) => {
+          resolveJob = resolve
+        }),
+    )
+
+    await wrapper.setProps({
+      jobId: '2',
+    })
+
+    expect(document.title).toBe('DevJobs')
+
+    resolveJob(
+      createJob({
+        id: 2,
+        position: 'Frontend Developer',
+      }),
+    )
+
+    await flushPromises()
+
+    expect(document.title).toBe('Frontend Developer | DevJobs')
+  })
+
+  it('renders the apply footer for a successfully loaded job', async () => {
+    const job = createJob()
+
+    getJobByIdMock.mockResolvedValue(job)
+
+    const wrapper = await mountPage('1')
+
+    const applyFooter = wrapper.get('.job-details-page__apply-bar')
+
+    expect(applyFooter.text()).toContain(job.position)
+    expect(applyFooter.text()).toContain(job.company)
+  })
+
+  it('uses the job apply URL in the footer link', async () => {
+    const job = createJob()
+
+    getJobByIdMock.mockResolvedValue(job)
+
+    const wrapper = await mountPage('1')
+
+    const applyLink = wrapper.get('.job-details-page__apply-link')
+
+    expect(applyLink.attributes('href')).toBe(job.apply)
+    expect(applyLink.attributes('target')).toBe('_blank')
+    expect(applyLink.attributes('rel')).toBe('noopener noreferrer')
+  })
+
+  it('does not render the apply footer when the job is not found', async () => {
+    getJobByIdMock.mockResolvedValue(null)
+
+    const wrapper = await mountPage('999')
+
+    expect(wrapper.find('.job-details-page__apply-bar').exists()).toBe(false)
+  })
+
+  it('does not render the apply footer for an invalid job id', async () => {
+    const wrapper = await mountPage('invalid')
+
+    expect(wrapper.find('.job-details-page__apply-bar').exists()).toBe(false)
+  })
+
+  it('does not render the apply footer when loading fails', async () => {
+    getJobByIdMock.mockRejectedValue(new Error('Failed to load job'))
+
+    const wrapper = await mountPage('1')
+
+    expect(wrapper.find('.job-details-page__apply-bar').exists()).toBe(false)
   })
 })

@@ -57,6 +57,24 @@ watch(
   },
   { immediate: true },
 )
+
+watch(
+  [status, job],
+  ([currentStatus, currentJob]) => {
+    if (currentStatus === 'success' && currentJob) {
+      document.title = `${currentJob.position} | DevJobs`
+      return
+    }
+
+    if (currentStatus === 'not-found') {
+      document.title = 'Page not found | DevJobs'
+      return
+    }
+
+    document.title = 'DevJobs'
+  },
+  { immediate: true },
+)
 </script>
 
 <template>
@@ -69,7 +87,8 @@ watch(
           Loading job...
         </p>
 
-        <section v-else-if="status === 'not-found'" class="job-details-page__state"
+        <section
+v-else-if="status === 'not-found'" class="job-details-page__state"
           aria-labelledby="job-not-found-title">
           <h1 id="job-not-found-title" class="job-details-page__state-title">
             Job not found
