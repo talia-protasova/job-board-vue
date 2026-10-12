@@ -42,36 +42,43 @@ function submitFilters() {
         <use href="/sprite.svg#icon-search" />
       </svg>
 
-      <label class="u-visually-hidden" for="job-search">
-        Search by title or company
-      </label>
+      <label class="u-visually-hidden" for="job-search"> Search by title or company </label>
 
       <input
-id="job-search" v-model="search" class="job-filters-desktop__input" name="search" type="search"
-        placeholder="Filter by title or company…">
+        id="job-search"
+        v-model="search"
+        class="job-filters-desktop__input"
+        name="search"
+        type="search"
+        placeholder="Filter by title or company…"
+      />
     </div>
 
-    <div
-class="
-        job-filters-desktop__field
-        job-filters-desktop__field--location
-      ">
+    <div class="job-filters-desktop__field job-filters-desktop__field--location">
       <svg class="job-filters-desktop__location-icon" aria-hidden="true">
         <use href="/sprite.svg#icon-location" />
       </svg>
 
-      <label class="u-visually-hidden" for="job-location">
-        Filter by location
-      </label>
+      <label class="u-visually-hidden" for="job-location"> Filter by location </label>
 
       <input
-id="job-location" v-model="location" class="job-filters-desktop__input" name="location" type="search"
-        placeholder="Filter by location…">
+        id="job-location"
+        v-model="location"
+        class="job-filters-desktop__input"
+        name="location"
+        type="search"
+        placeholder="Filter by location…"
+      />
     </div>
 
     <div class="job-filters-desktop__actions">
       <label class="job-filters-desktop__checkbox">
-        <input v-model="fullTime" class="job-filters-desktop__checkbox-input" name="fullTime" type="checkbox">
+        <input
+          v-model="fullTime"
+          class="job-filters-desktop__checkbox-input"
+          name="fullTime"
+          type="checkbox"
+        />
 
         <span class="job-filters-desktop__checkbox-control" aria-hidden="true">
           <svg class="job-filters-desktop__check-icon">
@@ -79,14 +86,10 @@ id="job-location" v-model="location" class="job-filters-desktop__input" name="lo
           </svg>
         </span>
 
-        <span class="job-filters-desktop__checkbox-label">
-          Full Time Only
-        </span>
+        <span class="job-filters-desktop__checkbox-label"> Full Time Only </span>
       </label>
 
-      <UiButton type="submit">
-        Search
-      </UiButton>
+      <UiButton type="submit"> Search </UiButton>
     </div>
   </form>
 </template>

@@ -14,7 +14,12 @@ withDefaults(
 </script>
 
 <template>
-  <button class="ui-icon-button" :class="`ui-icon-button--${variant}`" :type="type" :disabled="disabled">
+  <button
+    class="ui-icon-button"
+    :class="`ui-icon-button--${variant}`"
+    :type="type"
+    :disabled="disabled"
+  >
     <slot />
   </button>
 </template>

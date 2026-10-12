@@ -5,12 +5,13 @@
   --color-neutral-0: oklch(100% 0.00011 271.152deg);
   --color-neutral-950: oklch(0% 0 0deg);
   --color-slate-100: oklch(97.219% 0.00353 248.575deg);
-  --color-slate-300: oklch(74.42% 0.0347 252.583deg);
-  --color-slate-500: oklch(59.413% 0.04255 255.721deg);
+  --color-slate-300: oklch(78.751% 0.03663 250.984deg);
+  --color-slate-500: oklch(71.889% 0.03623 253.821deg);
+  --color-slate-700: oklch(37.886% 0.00368 264.604deg);
   --color-slate-900: oklch(24.294% 0.02708 262.553deg);
   --color-slate-950: oklch(20.444% 0.02153 263.938deg);
   --color-indigo-300: oklch(71.956% 0.12935 278.708deg);
-  --color-indigo-500: oklch(56.265% 0.18658 274.876deg);
+  --color-indigo-500: oklch(51.124% 0.23405 271.06deg);
 
   // Surfaces
 
@@ -20,7 +21,7 @@
   // Text
 
   --color-text-primary: var(--color-slate-900);
-  --color-text-secondary: var(--color-slate-500);
+  --color-text-secondary: var(--color-slate-700);
   --color-text-accent: var(--color-indigo-500);
   --color-text-on-accent: var(--color-neutral-0);
 
@@ -65,4 +66,6 @@
   --color-action-secondary-text: var(--color-neutral-0);
   --color-field-placeholder: rgb(255 255 255 / 50%);
   --color-checkbox-bg: rgb(255 255 255 / 10%);
+  --color-text-accent: var(--color-indigo-300);
+  --color-text-secondary: var(--color-slate-500);
 }

@@ -1,0 +1,7 @@
+# DevJobs
+
+DevJobs is a Vue 3 job board application for browsing and filtering software engineering opportunities.
+
+## Pages
+
+- [Job listings](./)

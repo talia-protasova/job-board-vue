@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import {
-  JobCard,
-  type Job,
-} from '@/entities/job'
+import { JobCard, type Job } from '@/entities/job'
 
 defineProps<{
   jobs: readonly Job[]

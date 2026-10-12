@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import {
-  nextTick,
-  onBeforeUnmount,
-  ref,
-  useId,
-  watch,
-} from 'vue'
+import { nextTick, onBeforeUnmount, ref, useId, watch } from 'vue'
 
 const props = defineProps<{
   open: boolean
@@ -35,11 +29,7 @@ function getFocusableElements(): HTMLElement[] {
     return []
   }
 
-  return Array.from(
-    dialogRef.value.querySelectorAll<HTMLElement>(
-      FOCUSABLE_SELECTOR,
-    ),
-  )
+  return Array.from(dialogRef.value.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR))
 }
 
 function closeModal() {
@@ -68,27 +58,20 @@ function handleKeydown(event: KeyboardEvent) {
   }
 
   const firstElement = focusableElements[0]
-  const lastElement =
-    focusableElements[focusableElements.length - 1]
+  const lastElement = focusableElements[focusableElements.length - 1]
 
   if (!firstElement || !lastElement) {
     return
   }
 
-  if (
-    event.shiftKey &&
-    document.activeElement === firstElement
-  ) {
+  if (event.shiftKey && document.activeElement === firstElement) {
     event.preventDefault()
     lastElement.focus()
 
     return
   }
 
-  if (
-    !event.shiftKey &&
-    document.activeElement === lastElement
-  ) {
+  if (!event.shiftKey && document.activeElement === lastElement) {
     event.preventDefault()
     firstElement.focus()
   }
@@ -99,16 +82,13 @@ watch(
   async (open) => {
     if (open) {
       previouslyFocusedElement =
-        document.activeElement instanceof HTMLElement
-          ? document.activeElement
-          : null
+        document.activeElement instanceof HTMLElement ? document.activeElement : null
 
       document.body.classList.add('u-no-scroll')
 
       await nextTick()
 
-      const [firstFocusableElement] =
-        getFocusableElements()
+      const [firstFocusableElement] = getFocusableElements()
 
       if (firstFocusableElement) {
         firstFocusableElement.focus()
@@ -136,16 +116,20 @@ onBeforeUnmount(() => {
     <Transition name="ui-modal">
       <div v-if="open" class="ui-modal" @click.self="closeModal">
         <div
-ref="dialogRef" class="ui-modal__dialog" role="dialog" aria-modal="true" :aria-labelledby="titleId"
-          tabindex="-1" @keydown="handleKeydown">
+          ref="dialogRef"
+          class="ui-modal__dialog"
+          role="dialog"
+          aria-modal="true"
+          :aria-labelledby="titleId"
+          tabindex="-1"
+          @keydown="handleKeydown"
+        >
           <header class="ui-modal__header">
             <h2 :id="titleId" class="ui-modal__title">
               {{ title }}
             </h2>
 
-            <button class="ui-modal__close" type="button" @click="closeModal">
-              Close
-            </button>
+            <button class="ui-modal__close" type="button" @click="closeModal">Close</button>
           </header>
 
           <div class="ui-modal__content">

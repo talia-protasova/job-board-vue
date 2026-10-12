@@ -7,7 +7,5 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <UiButton type="button" variant="primary" @click="emit('loadMore')">
-    Load More
-  </UiButton>
+  <UiButton type="button" variant="primary" @click="emit('loadMore')"> Load More </UiButton>
 </template>
