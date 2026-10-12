@@ -5,6 +5,8 @@ import { UiButton } from '@/shared/ui/ui-button'
 
 import type { JobFilters } from '../../model/job-filters.types'
 
+import { spriteUrl } from '@/shared/lib/assets'
+
 const props = defineProps<{
   filters: JobFilters
 }>()
@@ -39,7 +41,7 @@ function submitFilters() {
   <form class="job-filters-desktop" role="search" @submit.prevent="submitFilters">
     <div class="job-filters-desktop__field">
       <svg class="job-filters-desktop__search-icon" aria-hidden="true">
-        <use href="/sprite.svg#icon-search" />
+        <use :href="`${spriteUrl}#icon-search`" />
       </svg>
 
       <label class="u-visually-hidden" for="job-search"> Search by title or company </label>
@@ -56,7 +58,7 @@ function submitFilters() {
 
     <div class="job-filters-desktop__field job-filters-desktop__field--location">
       <svg class="job-filters-desktop__location-icon" aria-hidden="true">
-        <use href="/sprite.svg#icon-location" />
+        <use :href="`${spriteUrl}#icon-location`" />
       </svg>
 
       <label class="u-visually-hidden" for="job-location"> Filter by location </label>
@@ -82,7 +84,7 @@ function submitFilters() {
 
         <span class="job-filters-desktop__checkbox-control" aria-hidden="true">
           <svg class="job-filters-desktop__check-icon">
-            <use href="/sprite.svg#icon-check" />
+            <use :href="`${spriteUrl}#icon-check`" />
           </svg>
         </span>
 

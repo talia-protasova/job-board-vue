@@ -2,6 +2,7 @@
 import { RouterLink } from 'vue-router'
 
 import { ThemeToggle } from '@/features/theme-toggle'
+import { spriteUrl } from '@/shared/lib/assets'
 import { UiContainer } from '@/shared/ui/ui-container'
 </script>
 
@@ -14,7 +15,7 @@ import { UiContainer } from '@/shared/ui/ui-container'
       aria-hidden="true"
       focusable="false"
     >
-      <use href="/sprite.svg#bg-pattern-header-mobile" />
+      <use :href="`${spriteUrl}#bg-pattern-header-mobile`" />
     </svg>
 
     <svg
@@ -24,7 +25,7 @@ import { UiContainer } from '@/shared/ui/ui-container'
       aria-hidden="true"
       focusable="false"
     >
-      <use href="/sprite.svg#bg-pattern-header-tablet" />
+      <use :href="`${spriteUrl}#bg-pattern-header-tablet`" />
     </svg>
 
     <svg
@@ -34,7 +35,7 @@ import { UiContainer } from '@/shared/ui/ui-container'
       aria-hidden="true"
       focusable="false"
     >
-      <use href="/sprite.svg#bg-pattern-header" />
+      <use :href="`${spriteUrl}#bg-pattern-header`" />
     </svg>
 
     <UiContainer>
@@ -48,7 +49,7 @@ import { UiContainer } from '@/shared/ui/ui-container'
             aria-hidden="true"
             focusable="false"
           >
-            <use href="/sprite.svg#logo" />
+            <use :href="`${spriteUrl}#logo`" />
           </svg>
         </RouterLink>
 

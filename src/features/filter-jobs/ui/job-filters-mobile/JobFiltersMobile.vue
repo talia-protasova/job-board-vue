@@ -7,6 +7,8 @@ import { UiModal } from '@/shared/ui/ui-modal'
 
 import type { JobFilters } from '../../model/job-filters.types'
 
+import { spriteUrl } from '@/shared/lib/assets'
+
 const props = defineProps<{
   filters: JobFilters
 }>()
@@ -74,13 +76,13 @@ function applyFilters() {
     <div class="job-filters-mobile__actions">
       <UiIconButton aria-label="Open filters" @click="openFilters">
         <svg class="job-filters-mobile__filter-icon" aria-hidden="true">
-          <use href="/sprite.svg#icon-filter" />
+          <use :href="`${spriteUrl}#icon-filter`" />
         </svg>
       </UiIconButton>
 
       <UiIconButton variant="primary" type="submit" aria-label="Search jobs">
         <svg class="job-filters-mobile__search-icon" aria-hidden="true">
-          <use href="/sprite.svg#icon-search" />
+          <use :href="`${spriteUrl}#icon-search`" />
         </svg>
       </UiIconButton>
     </div>
@@ -90,7 +92,7 @@ function applyFilters() {
     <form class="job-filters-mobile__dialog-form" @submit.prevent="applyFilters">
       <div class="job-filters-mobile__location-field">
         <svg class="job-filters-mobile__location-icon" aria-hidden="true">
-          <use href="/sprite.svg#icon-location" />
+          <use :href="`${spriteUrl}#icon-location`" />
         </svg>
 
         <label class="u-visually-hidden" for="job-location-mobile"> Filter by location </label>
@@ -116,7 +118,7 @@ function applyFilters() {
 
           <span class="job-filters-mobile__checkbox-control" aria-hidden="true">
             <svg class="job-filters-mobile__check-icon">
-              <use href="/sprite.svg#icon-check" />
+              <use :href="`${spriteUrl}#icon-check`" />
             </svg>
           </span>
 

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useTheme } from '../model/useTheme'
 
+import { spriteUrl } from '@/shared/lib/assets'
+
 const { isDark, toggleTheme } = useTheme()
 </script>
 
@@ -14,7 +16,7 @@ const { isDark, toggleTheme } = useTheme()
     @click="toggleTheme"
   >
     <svg class="theme-toggle__sun" width="20" height="19" aria-hidden="true">
-      <use href="/sprite.svg#icon-sun" />
+      <use :href="`${spriteUrl}#icon-sun`" />
     </svg>
 
     <span class="theme-toggle__track" aria-hidden="true">
@@ -22,7 +24,7 @@ const { isDark, toggleTheme } = useTheme()
     </span>
 
     <svg class="theme-toggle__moon" width="12" height="12" aria-hidden="true">
-      <use href="/sprite.svg#icon-moon" />
+      <use :href="`${spriteUrl}#icon-moon`" />
     </svg>
   </button>
 </template>

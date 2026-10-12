@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 
 import { getJobLogoMeta } from '../../model/job.lib'
+import { spriteUrl } from '@/shared/lib/assets'
 
 interface Props {
   logo: string
@@ -23,7 +24,7 @@ const logoMeta = computed(() => getJobLogoMeta(props.logo))
       aria-hidden="true"
       focusable="false"
     >
-      <use :href="`/sprite.svg#${logoMeta.id}`" />
+      <use :href="`${spriteUrl}#${logoMeta.id}`" />
     </svg>
   </div>
 </template>
