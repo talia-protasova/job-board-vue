@@ -60,13 +60,16 @@ function applyFilters() {
 
 <template>
   <form class="job-filters-mobile" role="search" @submit.prevent="submitSearch">
-    <label class="u-visually-hidden" for="job-search-mobile">
-      Search by title or company
-    </label>
+    <label class="u-visually-hidden" for="job-search-mobile"> Search by title or company </label>
 
     <input
-id="job-search-mobile" v-model="search" class="job-filters-mobile__input" name="search" type="search"
-      placeholder="Filter by title…">
+      id="job-search-mobile"
+      v-model="search"
+      class="job-filters-mobile__input"
+      name="search"
+      type="search"
+      placeholder="Filter by title…"
+    />
 
     <div class="job-filters-mobile__actions">
       <UiIconButton aria-label="Open filters" @click="openFilters">
@@ -90,18 +93,26 @@ id="job-search-mobile" v-model="search" class="job-filters-mobile__input" name="
           <use href="/sprite.svg#icon-location" />
         </svg>
 
-        <label class="u-visually-hidden" for="job-location-mobile">
-          Filter by location
-        </label>
+        <label class="u-visually-hidden" for="job-location-mobile"> Filter by location </label>
 
         <input
-id="job-location-mobile" v-model="location" class="job-filters-mobile__dialog-input" name="location"
-          type="search" placeholder="Filter by location…">
+          id="job-location-mobile"
+          v-model="location"
+          class="job-filters-mobile__dialog-input"
+          name="location"
+          type="search"
+          placeholder="Filter by location…"
+        />
       </div>
 
       <div class="job-filters-mobile__dialog-actions">
         <label class="job-filters-mobile__checkbox">
-          <input v-model="fullTime" class="job-filters-mobile__checkbox-input" name="fullTime" type="checkbox">
+          <input
+            v-model="fullTime"
+            class="job-filters-mobile__checkbox-input"
+            name="fullTime"
+            type="checkbox"
+          />
 
           <span class="job-filters-mobile__checkbox-control" aria-hidden="true">
             <svg class="job-filters-mobile__check-icon">
@@ -112,9 +123,7 @@ id="job-location-mobile" v-model="location" class="job-filters-mobile__dialog-in
           <span>Full Time Only</span>
         </label>
 
-        <UiButton class="job-filters-mobile__apply" type="submit">
-          Search
-        </UiButton>
+        <UiButton class="job-filters-mobile__apply" type="submit"> Search </UiButton>
       </div>
     </form>
   </UiModal>

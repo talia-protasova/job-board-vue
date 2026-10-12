@@ -6,8 +6,13 @@ const { isDark, toggleTheme } = useTheme()
 
 <template>
   <button
-class="theme-toggle" type="button" role="switch" aria-label="Dark mode" :aria-checked="isDark"
-    @click="toggleTheme">
+    class="theme-toggle"
+    type="button"
+    role="switch"
+    aria-label="Dark mode"
+    :aria-checked="isDark"
+    @click="toggleTheme"
+  >
     <svg class="theme-toggle__sun" width="20" height="19" aria-hidden="true">
       <use href="/sprite.svg#icon-sun" />
     </svg>

@@ -1,14 +1,8 @@
 <script setup lang="ts">
-import {
-  ref,
-  watch,
-} from 'vue'
+import { ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 
-import {
-  getJobById,
-  type Job,
-} from '@/entities/job'
+import { getJobById, type Job } from '@/entities/job'
 import { UiContainer } from '@/shared/ui/ui-container'
 import { AppHeader } from '@/widgets/app-header'
 import { JobDetailsContent } from '@/widgets/job-details-content'
@@ -83,34 +77,28 @@ watch(
   <main id="main-content" class="job-details-page" tabindex="-1">
     <UiContainer>
       <div class="job-details-page__content">
-        <p v-if="status === 'loading'" class="job-details-page__status">
-          Loading job...
-        </p>
+        <p v-if="status === 'loading'" class="job-details-page__status">Loading job...</p>
 
         <section
-v-else-if="status === 'not-found'" class="job-details-page__state"
-          aria-labelledby="job-not-found-title">
-          <h1 id="job-not-found-title" class="job-details-page__state-title">
-            Job not found
-          </h1>
+          v-else-if="status === 'not-found'"
+          class="job-details-page__state"
+          aria-labelledby="job-not-found-title"
+        >
+          <h1 id="job-not-found-title" class="job-details-page__state-title">Job not found</h1>
 
-          <p class="job-details-page__state-text">
-            The job you're looking for does not exist.
-          </p>
+          <p class="job-details-page__state-text">The job you're looking for does not exist.</p>
 
-          <RouterLink class="job-details-page__back-link" to="/">
-            Back to all jobs
-          </RouterLink>
+          <RouterLink class="job-details-page__back-link" to="/"> Back to all jobs </RouterLink>
         </section>
 
-        <section v-else-if="status === 'error'" class="job-details-page__state" aria-labelledby="job-error-title">
-          <h1 id="job-error-title" class="job-details-page__state-title">
-            Something went wrong
-          </h1>
+        <section
+          v-else-if="status === 'error'"
+          class="job-details-page__state"
+          aria-labelledby="job-error-title"
+        >
+          <h1 id="job-error-title" class="job-details-page__state-title">Something went wrong</h1>
 
-          <p class="job-details-page__state-text">
-            We couldn't load this job.
-          </p>
+          <p class="job-details-page__state-text">We couldn't load this job.</p>
         </section>
 
         <JobDetailsContent v-else-if="job" :job="job" />
@@ -130,7 +118,12 @@ v-else-if="status === 'not-found'" class="job-details-page__state"
         </p>
       </div>
 
-      <a class="job-details-page__apply-link" :href="job.apply" target="_blank" rel="noopener noreferrer">
+      <a
+        class="job-details-page__apply-link"
+        :href="job.apply"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Apply Now
       </a>
     </div>

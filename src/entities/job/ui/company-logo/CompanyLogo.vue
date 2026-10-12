@@ -16,8 +16,13 @@ const logoMeta = computed(() => getJobLogoMeta(props.logo))
 <template>
   <div class="company-logo" :style="{ backgroundColor: props.backgroundColor }">
     <svg
-class="company-logo__image" :width="logoMeta.width" :height="logoMeta.height"
-      :viewBox="`0 0 ${logoMeta.width} ${logoMeta.height}`" aria-hidden="true" focusable="false">
+      class="company-logo__image"
+      :width="logoMeta.width"
+      :height="logoMeta.height"
+      :viewBox="`0 0 ${logoMeta.width} ${logoMeta.height}`"
+      aria-hidden="true"
+      focusable="false"
+    >
       <use :href="`/sprite.svg#${logoMeta.id}`" />
     </svg>
   </div>
